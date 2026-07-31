@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +13,20 @@
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    <link rel="stylesheet" href="css/style.css?v=1.1.0" />
+</head>
 
-  <body>
+<body>
+    <!-- particle background -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- header design -->
-     <header class="header">
+    <header class="header">
         <a href="#" class="logo">Portfolio.</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -28,57 +34,218 @@
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#journey">Journey</a>
             <a href="#certificates">Certificates</a>
             <a href="#project">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
-     </header>
+    </header>
 
     <!-- home section design -->
     <section class="home" id="home">
         <div class="home-content">
-             <h3>Hello, It's Me</h3>
-             <h1>Jaison George</h1>
-             <h3>And I'm a <span class="multiple-text"></span></h3>
-             <p>A Motivated Master of Computer Applications student focusing on Data Analytics.
-              I have built a solid foundation in programming languages including Python, Java, SQL, and HTML.​
-             </p>
-             <div class="social-media">
-                 <a href="#" aria-label="Facebook"><i class='bx bxl-facebook' ></i></a>
-                 <a href="#" aria-label="Twitter"><i class='bx bxl-twitter' ></i></a>
-                 <a href="https://github.com/JaisonGeorge04" target="_blank" aria-label="Github"><i class='bx bxl-github' ></i></a>
-                 <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin' ></i></a>
-             </div>
-             <a href="C:\JAISON\Job Strategies\JAISON GEORGE.pdf" class="btn" target="_blank">Download CV</a>
+            <h3>Hello, It's Me</h3>
+            <h1>Jaison George</h1>
+            <h3>And I'm a <br>
+                <span class="multiple-text"></span>
+            </h3>
+            <p>Software Developer with hands-on experience in building web applications and working with AI, cloud, and
+                DevOps technologies.
+                Skilled in Python, JavaScript, SQL, Django, REST APIs, and modern development tools, with a strong focus
+                on building reliable solutions and continuously expanding my technical expertise.
+            </p>
+            <div class="social-media">
+                <a href="https://github.com/JaisonGeorge04" target="_blank" aria-label="Github"><i
+                        class='bx bxl-github'></i></a>
+                <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank" aria-label="LinkedIn"><i
+                        class='bx bxl-linkedin'></i></a>
+            </div>
+            <div class="home-btn-group">
+                <a href="files/JaisonGeorge Resume.pdf" class="btn" target="_blank">Download CV <i
+                        class='bx bx-download'></i></a>
+                <a href="#contact" class="btn btn-outline">Let's Connect <i class='bx bx-message-square-detail'></i></a>
+            </div>
         </div>
 
         <div class="home-img float-wrapper">
             <div class="img-box" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
                 <img src="images/profesionalLook.jpg" alt="Jaison George">
+
+                <!-- Floating Glass Badge -->
+                <div class="floating-badge glass-card pop-out">
+                    <span class="pulse-dot"></span>
+                    <p>Open to Opportunities</p>
+                </div>
             </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-down">
+            <a href="#about" aria-label="Scroll Down">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </a>
         </div>
     </section>
 
     <!-- about section design -->
     <section class="about" id="about">
+        <div class="about-profile-container float-wrapper">
+            <div class="about-profile-card glass-card pop-out" data-tilt data-tilt-max="5" data-tilt-speed="400">
+                <div class="card-glow"></div>
+                <div class="profile-header">
+                    <div class="avatar-badge">
+                        <i class='bx bx-code-block'></i>
+                    </div>
+                    <h3>Jaison George</h3>
+                    <p>MCA Graduate & Developer</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <i class='bx bx-book-reader'></i>
+                        <div class="detail-info">
+                            <span class="label">Education</span>
+                            <span class="value">Master of Computer Applications</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class='bx bx-git-branch'></i>
+                        <div class="detail-info">
+                            <span class="label">Main Project</span>
+                            <span class="value">Hostel Management System</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class='bx bx-brain'></i>
+                        <div class="detail-info">
+                            <span class="label">Specialization</span>
+                            <span class="value">AI & CLOUD</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class='bx bx-briefcase-alt-2'></i>
+                        <div class="detail-info">
+                            <span class="label">Availability</span>
+                            <span class="value status-pulse">Open to Opportunities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
-            <h3>MCA Student!</h3>
+            <h3>MCA Graduate & Software Developer</h3>
             <p id="about-text">
-                I am currently pursuing my Master of Computer Applications (MCA) 
-                at Lead College (Autonomous), Palakkad. I have completed my Bachelor 
-                of Science in Computer Science from St. Thomas College, Kozhencherry. 
+                I have completed my MCA coursework and examinations at LEAD College (Autonomous),
+                Palakkad, after earning my B.Sc. in Computer Science from St. Thomas College, Kozhencherry.
                 <span id="more-text" class="hidden">
-                  I have strong skills in Python, Java, and HTML, and I am passionate 
-                  about developing efficient, user-friendly applications.
-                  I’m eager to apply my technical knowledge and problem-solving skills 
-                  in a professional environment that fosters learning and innovation. 
-                  My interests also include exploring AI tools, web technologies, and 
-                  creative problem-solving using software.
+                    I have hands-on experience in software and web development using Python, JavaScript, SQL,
+                    Django, HTML, CSS, and REST APIs. Through academic and personal projects,
+                    I have worked with application development, databases, API integration, AI tools,
+                    cloud technologies, and DevOps practices.
+                    I enjoy solving technical problems, building practical solutions, and
+                    continuously learning modern technologies to grow as a software professional.
                 </span>
             </p>
+
+            <!-- Quick Info Cards -->
+            <div class="about-info-container">
+                <div class="info-card glass-card">
+                    <i class='bx bx-book-open'></i>
+                    <h4>Education</h4>
+                    <p>MCA & B.Sc. CS</p>
+                </div>
+                <div class="info-card glass-card">
+                    <i class='bx bx-building-house'></i>
+                    <h4>Main Project</h4>
+                    <p>Hostel Management System</p>
+                </div>
+                <div class="info-card glass-card">
+                    <i class='bx bx-code-block'></i>
+                    <h4>Skills Focus</h4>
+                    <p>Python & Django</p>
+                </div>
+            </div>
+
             <button id="read-more-btn" class="btn">Read More <i class='bx bx-expand-vertical'></i></button>
+        </div>
+    </section>
+
+    <!-- skills section design -->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skills-category glass-card pop-out" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <h3><i class='bx bx-code-alt'></i> Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-badge"><i class='bx bxl-python'></i> Python</span>
+                    <span class="skill-badge"><i class='bx bxl-javascript'></i> JavaScript</span>
+                    <span class="skill-badge"><i class='bx bxl-postgresql'></i> SQL</span>
+                    <span class="skill-badge"><i class='bx bxl-java'></i> Java</span>
+                    <span class="skill-badge"><i class='bx bxl-html5'></i> HTML5 & CSS3</span>
+                </div>
+            </div>
+
+            <div class="skills-category glass-card pop-out" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <h3><i class='bx bx-layer'></i> Frameworks & Development</h3>
+                <div class="skills-list">
+                    <span class="skill-badge"><i class='bx bx-code-block'></i> Django</span>
+                    <span class="skill-badge"><i class='bx bx-line-chart'></i> Streamlit</span>
+                    <span class="skill-badge"><i class='bx bx-transfer'></i> REST APIs</span>
+                    <span class="skill-badge"><i class='bx bxl-react'></i> React.js</span>
+                    <span class="skill-badge"><i class='bx bxl-git'></i> Git</span>
+                </div>
+            </div>
+
+            <div class="skills-category glass-card pop-out" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <h3><i class='bx bx-cube-alt'></i> Cloud, DevOps & Tools</h3>
+                <div class="skills-list">
+                    <span class="skill-badge"><i class='bx bxl-aws'></i> AWS</span>
+                    <span class="skill-badge"><i class='bx bxl-docker'></i> Docker</span>
+                    <span class="skill-badge"><i class='bx bx-cog'></i> Jenkins</span>
+                    <span class="skill-badge"><i class='bx bx-globe'></i> Terraform</span>
+                    <span class="skill-badge"><i class='bx bxl-github'></i> GitHub</span>
+                    <span class="skill-badge"><i class='bx bxl-tux'></i> Linux</span>
+                </div>
+            </div>
+
+            <div class="skills-category glass-card pop-out" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <h3><i class='bx bx-bot'></i> AI & Security</h3>
+                <div class="skills-list">
+                    <span class="skill-badge"><i class='bx bx-brain'></i> Generative AI</span>
+                    <span class="skill-badge"><i class='bx bx-terminal'></i> Prompt Engineering</span>
+                    <span class="skill-badge"><i class='bx bx-network-chart'></i> AI Integration</span>
+                    <span class="skill-badge"><i class='bx bx-shield-quarter'></i> Cybersecurity</span>
+                    <span class="skill-badge"><i class='bx bx-lock-alt'></i> IoT Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- journey section design -->
+    <section class="journey" id="journey">
+        <h2 class="heading">My <span>Journey</span></h2>
+        <div class="timeline">
+            <div class="timeline-item left glass-card pop-out" data-tilt data-tilt-max="5" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.1">
+                <div class="timeline-date">2025 - Present</div>
+                <h3>Master of Computer Applications (MCA)</h3>
+                <h4>LEAD College (Autonomous), Palakkad</h4>
+                <p>Focusing on Advanced Application Development and Data Analytics. Hands-on projects with Python, web
+                    frameworks, and database architecture.</p>
+            </div>
+
+            <div class="timeline-item right glass-card pop-out" data-tilt data-tilt-max="5" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.1">
+                <div class="timeline-date">2022 - 2025</div>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <h4>St. Thomas College, Kozhencherry</h4>
+                <p>Acquired strong foundational computer science knowledge including algorithms, object-oriented
+                    programming, data structures, and database principles.</p>
+            </div>
         </div>
     </section>
 
@@ -87,31 +254,56 @@
         <h2 class="heading">My <span>Certificates</span></h2>
 
         <div class="services-container">
-            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.2">
                 <div class="cert-img-wrapper pop-out">
                     <div class="cert-placeholder"><i class='bx bx-certification'></i></div>
                 </div>
                 <h3 class="pop-out">Digital Marketing</h3>
-                <p class="pop-out">Gained foundational knowledge of digital marketing, including SEO, social media, and online advertising strategies.</p>
-                <a href="images/digital marketing.png" target="_blank" class="btn-outline pop-out">View Certificate</a>
+                <p class="pop-out">Gained foundational knowledge of digital marketing, including SEO, social media, and
+                    online advertising strategies.</p>
+                <a href="images/digital marketing.png" target="_blank" class="btn-outline pop-out view-cert-btn">View
+                    Certificate</a>
             </div>
 
-            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.2">
                 <div class="cert-img-wrapper pop-out">
                     <div class="cert-placeholder"><i class='bx bx-brain'></i></div>
                 </div>
                 <h3 class="pop-out">Prompt Engineering</h3>
-                <p class="pop-out">Gained practical knowledge of crafting precise prompts to improve AI output accuracy and creativity.</p>
-                <a href="images/prompt engineering.png" target="_blank" class="btn-outline pop-out">View Certificate</a>
+                <p class="pop-out">Gained practical knowledge of crafting precise prompts to improve AI output accuracy
+                    and creativity.</p>
+                <a href="images/prompt engineering.png" target="_blank" class="btn-outline pop-out view-cert-btn">View
+                    Certificate</a>
             </div>
 
-            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.2">
+                <div class="cert-img-wrapper pop-out">
+                    <div class="cert-placeholder"><i class='bx bx-shield-quarter'></i></div>
+                </div>
+                <h3 class="pop-out">TCS iON Industry Project</h3>
+                <p class="pop-out">Completed a 90-hour industry project on Securing a Smart Home Ecosystem,
+                    gaining practical exposure to cybersecurity, IoT security, threat analysis, and secure system
+                    design.
+                </p>
+                <a href="images/TCS iON Industry Project.pdf" target="_blank"
+                    class="btn-outline pop-out view-cert-btn">View
+                    Certificate</a>
+            </div>
+
+            <div class="services-box glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.2">
                 <div class="cert-img-wrapper pop-out">
                     <div class="cert-placeholder"><i class='bx bx-shield-quarter'></i></div>
                 </div>
                 <h3 class="pop-out">Cybersecurity</h3>
-                <p class="pop-out">Gained foundational knowledge of cybersecurity principles, including network security, threat detection, and data protection.</p>
-                <a href="images/Cybersecurity_certificate.pdf" target="_blank" class="btn-outline pop-out">View Certificate</a>
+                <p class="pop-out">Gained foundational knowledge of cybersecurity principles, including network
+                    security, threat detection, and data protection.</p>
+                <a href="images/Cybersecurity_certificate.pdf" target="_blank"
+                    class="btn-outline pop-out view-cert-btn">View
+                    Certificate</a>
             </div>
         </div>
     </section>
@@ -120,65 +312,94 @@
     <section class="project" id="project">
         <h2 class="heading">Latest <span>Projects</span></h2>
 
+        <!-- Project Filters -->
+        <div class="portfolio-filter pop-out">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Apps</button>
+            <button class="filter-btn" data-filter="ml-data">AI & ML</button>
+        </div>
+
         <div class="portfolio-container">
-            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
-                <img class="pop-out" src="images/portfolio1.jpg" alt="Hostel Management System">
+            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.3" data-category="web" data-project="hostel">
+                <img class="pop-out" src="images/portfolio1.png" alt="Hostel Management System">
                 <div class="portfolio-layer pop-out">
                     <h4>Hostel Management System</h4>
                     <p>Built a web-based application using HTML, CSS, and Django to manage hostel operations.</p>
                     <div class="portfolio-links">
-                        <a href="https://github.com/JaisonGeorge04/Hostel-Management-System.git" target="_blank" aria-label="GitHub">
-                        <i class="bx bxl-github"></i>
-                      </a>
+                        <button class="view-details btn-outline" aria-label="View Project Details">
+                            <i class="bx bx-info-circle"></i> Details
+                        </button>
+                        <a href="https://github.com/JaisonGeorge04/Hostel-Management-System.git" target="_blank"
+                            aria-label="GitHub">
+                            <i class="bx bxl-github"></i>
+                        </a>
                     </div>
                 </div>
-            </div>    
+            </div>
 
-            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
-                <img class="pop-out" src="images/portfolio2.jpg" alt="Breast Cancer Prediction System">
+            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.3" data-category="ml-data" data-project="cancer">
+                <img class="pop-out" src="images/portfolio2.png" alt="Breast Cancer Prediction System">
                 <div class="portfolio-layer pop-out">
                     <h4>Breast Cancer Prediction System</h4>
                     <p>
-                      A machine learning diagnostic tool built using Gradient Boosting
-                      and Streamlit to classify breast tumors.
+                        A machine learning diagnostic tool built using Gradient Boosting
+                        and Streamlit to classify breast tumors.
                     </p>
                     <div class="portfolio-links">
-                      <a href="https://github.com/JaisonGeorge04/Breast-Cancer-Prediction-System" target="_blank" aria-label="GitHub">
-                        <i class="bx bxl-github"></i>
-                      </a>
-                      <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/" target="_blank" aria-label="Live Demo">
-                        <i class="bx bx-link-external"></i>
-                      </a>
+                        <button class="view-details btn-outline" aria-label="View Project Details">
+                            <i class="bx bx-info-circle"></i> Details
+                        </button>
+                        <a href="https://github.com/JaisonGeorge04/Breast-Cancer-Prediction-System" target="_blank"
+                            aria-label="GitHub">
+                            <i class="bx bxl-github"></i>
+                        </a>
+                        <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/"
+                            target="_blank" aria-label="Live Demo">
+                            <i class="bx bx-link-external"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
-                <img class="pop-out" src="images/portfolio3.jpg" alt="Loan Management System">
+            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.3" data-category="web" data-project="loan">
+                <img class="pop-out" src="images/portfolio3.png" alt="Loan Management System">
                 <div class="portfolio-layer pop-out">
                     <h4>Loan Management System</h4>
-                    <p>A comprehensive solution for managing and tracking loans with real-time updates and reporting.</p>
+                    <p>A comprehensive solution for managing and tracking loans with real-time updates and reporting.
+                    </p>
                     <div class="portfolio-links">
-                        <a href="https://github.com/JaisonGeorge04/Loan-Management-System" target="_blank" aria-label="GitHub">
-                        <i class="bx bxl-github"></i>
-                      </a>
+                        <button class="view-details btn-outline" aria-label="View Project Details">
+                            <i class="bx bx-info-circle"></i> Details
+                        </button>
+                        <a href="https://github.com/JaisonGeorge04/Loan-Management-System" target="_blank"
+                            aria-label="GitHub">
+                            <i class="bx bxl-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
-                <img class="pop-out" src="images/portfolio4.jpg" alt="Smart FlashCard Generator">
+            <div class="portfolio-box glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400"
+                data-tilt-glare="true" data-tilt-max-glare="0.3" data-category="web" data-project="flashcard">
+                <img class="pop-out" src="images/portfolio4.png" alt="Smart FlashCard Generator">
                 <div class="portfolio-layer pop-out">
                     <h4>Smart FlashCard Generator</h4>
                     <p>Exploring modern CSS frameworks and dynamic JavaScript interactivity.</p>
                     <div class="portfolio-links">
-                        <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank" aria-label="GitHub">
-                        <i class="bx bxl-github"></i>
-                      </a>
+                        <button class="view-details btn-outline" aria-label="View Project Details">
+                            <i class="bx bx-info-circle"></i> Details
+                        </button>
+                        <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank"
+                            aria-label="GitHub">
+                            <i class="bx bxl-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -186,10 +407,11 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form id="contact-form" action="https://formsubmit.co/jaisongeorge699@gmail.com" method="POST" class="glass-card" data-tilt data-tilt-max="3" data-tilt-speed="600">
+        <form id="contact-form" action="https://formsubmit.co/ajax/jaisongeorge699@gmail.com" method="POST"
+            class="glass-card" data-tilt data-tilt-max="3" data-tilt-speed="600">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            
+
             <div class="input-box pop-out">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
@@ -199,9 +421,9 @@
                 <input type="tel" name="mobile" placeholder="Mobile Number" required>
                 <input type="text" name="subject" placeholder="Email Subject" required>
             </div>
-            
+
             <textarea class="pop-out" name="message" cols="30" rows="8" placeholder="Your Message" required></textarea>
-            
+
             <button type="submit" class="btn pop-out">Send Message <i class='bx bx-send'></i></button>
         </form>
 
@@ -222,16 +444,103 @@
         </div>
     </footer>
 
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content glass-card pop-out">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h3 id="modal-title">Project Title</h3>
+                <div class="modal-tags" id="modal-tags">
+                    <!-- Tech tags injected dynamically -->
+                </div>
+                <div class="modal-details-grid">
+                    <div class="modal-description">
+                        <h4>Overview</h4>
+                        <p id="modal-desc">Project description...</p>
+                    </div>
+                    <div class="modal-extra">
+                        <h4>Key Deliverables & Learnings</h4>
+                        <p id="modal-challenges">Details...</p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a id="modal-github" href="#" target="_blank" class="btn"><i class="bx bxl-github"></i> View
+                        Code</a>
+                    <a id="modal-live" href="#" target="_blank" class="btn btn-outline"><i
+                            class="bx bx-link-external"></i> Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificate Preview Modal -->
+    <div id="cert-modal" class="modal">
+        <div class="modal-content cert-modal-card glass-card pop-out">
+            <span class="close-cert-modal" id="close-cert-modal">&times;</span>
+            <div class="cert-modal-body">
+                <h3 id="cert-modal-title">Certificate Preview</h3>
+                <div class="cert-viewer-container">
+                    <!-- Image or PDF Embed injected dynamically -->
+                </div>
+                <div class="cert-modal-actions">
+                    <a id="cert-download-link" href="#" target="_blank" class="btn"><i class="bx bx-download"></i> Open
+                        Original</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AI Chatbot Design -->
+    <div id="ai-chat-btn" class="chat-trigger" aria-label="Open AI Assistant">
+        <i class="bx bx-bot"></i>
+        <span class="chat-badge-dot"></span>
+    </div>
+
+    <div id="ai-chat-container" class="chat-container glass-card hidden">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <i class="bx bx-bot"></i>
+                    <span class="active-dot"></span>
+                </div>
+                <div>
+                    <h4>Jaison's Assistant</h4>
+                    <p>Online & Ready to Help</p>
+                </div>
+            </div>
+            <button id="close-chat" class="close-chat-btn" aria-label="Close Chat"><i class="bx bx-x"></i></button>
+        </div>
+
+        <div id="chat-messages" class="chat-messages">
+            <!-- Messages dynamically populated by JS -->
+        </div>
+
+        <div class="chat-suggestions">
+            <button class="suggestion-chip" data-query="Who is Jaison?">Who is Jaison?</button>
+            <button class="suggestion-chip" data-query="What are your skills?">Skills</button>
+            <button class="suggestion-chip" data-query="Show me your projects">Projects</button>
+            <button class="suggestion-chip" data-query="How can I contact you?">Contact</button>
+        </div>
+
+        <form id="chat-input-form" class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask me anything about Jaison..." autocomplete="off" required>
+            <button type="submit" class="send-message-btn" aria-label="Send message">
+                <i class="bx bx-send"></i>
+            </button>
+        </form>
+    </div>
+
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- typed js -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    
+
     <!-- vanilla tilt js -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <!-- custom js -->
-    <script src="js/script.js"></script>
-  </body>
+    <script src="js/script.js?v=1.2.0"></script>
+</body>
+
 </html>
