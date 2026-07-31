@@ -455,49 +455,7 @@ span.multiple-text {
     margin: 0 !important;
 }
 
-/*==================== Scroll Indicator ====================*/
-.scroll-down {
-    position: absolute;
-    bottom: 3.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-}
 
-.scroll-down .mouse {
-    width: 26px;
-    height: 42px;
-    border: 2px solid var(--text-muted);
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-.scroll-down .mouse:hover {
-    border-color: var(--main-color);
-}
-
-.scroll-down .wheel {
-    width: 4px;
-    height: 8px;
-    background: var(--main-color);
-    border-radius: 2px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll-wheel 1.6s infinite ease-in-out;
-}
-
-@keyframes scroll-wheel {
-    0% { top: 8px; opacity: 1; }
-    50% { top: 22px; opacity: 0; }
-    100% { top: 8px; opacity: 0; }
-}
 
 /*==================== Hero Button Grid ====================*/
 .home-btn-group {
@@ -1271,28 +1229,40 @@ span.multiple-text {
     .home-content h1 { font-size: 5rem; }
     .social-media { justify-content: center; }
     
+    .home-img.float-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .home-img .img-box {
+        width: 60vw;
+        max-width: 300px;
+    }
+    
     .about { flex-direction: column; text-align: center; }
     .about-content h2 { text-align: center; }
     .about .float-wrapper { width: 50vw; }
 
     /* Timeline responsive adjustment */
     .timeline::after {
-        left: 31px;
+        left: 20px;
     }
     .timeline-item {
-        width: 100%;
-        padding-left: 7rem;
-        padding-right: 2rem;
+        width: calc(100% - 45px);
+        margin-left: 45px;
+        margin-bottom: 2.5rem;
+        padding: 2.5rem !important; /* Ensure desktop padding specificity override */
     }
     .timeline-item.right {
         left: 0%;
     }
     .timeline-item::after {
-        left: 22px;
+        left: -33px;
         right: auto;
     }
     .timeline-item.right::after {
-        left: 22px;
+        left: -33px;
     }
 }
 
@@ -1324,7 +1294,8 @@ span.multiple-text {
     .navbar a::after { display: none; }
     
     .home-content h1 { font-size: 4.5rem; }
-    .float-wrapper { width: 60vw; }
+    .home-img.float-wrapper { width: 100%; }
+    .about-profile-container.float-wrapper { width: 60vw; }
     
     .contact .input-box { flex-direction: column; gap: 0; }
     .contact form { padding: 2rem; }
