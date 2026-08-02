@@ -250,7 +250,7 @@ const projectsData = {
         tags: ['Python', 'Streamlit', 'Scikit-Learn', 'Machine Learning', 'Gradient Boosting'],
         desc: 'A diagnostic decision-support system that uses a Gradient Boosting machine learning model to classify breast tumors as benign or malignant based on cellular features. Built with Streamlit for a clean, accessible UI.',
         challenges: 'Fine-tuned model hyperparameters to achieve high classification accuracy while maintaining computational efficiency. Handled features scaling and missing value imputation pipelines securely using Scikit-Learn.',
-        github: 'https://github.com/JaisonGeorge04/Breast-Cancer-Prediction-System',
+        github: 'https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System',
         live: 'https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/'
     },
     loan: {
@@ -562,7 +562,7 @@ if (chatBtn && chatContainer && closeChat && chatMessages && chatForm && chatInp
             return `<strong>Hostel Management System</strong> is a full-featured Django web application Jaison built to automate room allocations, warden notifications, and payment tracking. <br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Hostel-Management-System.git" target="_blank">GitHub Repository</a><br>📂 Or click "Details" under the <a href="#project">Projects</a> section!`;
         }
         if (text.includes('cancer') || text.includes('breast') || text.includes('tumor')) {
-            return `<strong>Breast Cancer Prediction System</strong> is an ML diagnostic dashboard Jaison developed. It uses Scikit-Learn (Gradient Boosting) to analyze tumor features and Streamlit for the user interface.<br><br>🔗 Demo: <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/" target="_blank">Live App</a><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Breast-Cancer-Prediction-System" target="_blank">GitHub Repository</a>`;
+            return `<strong>Breast Cancer Prediction System</strong> is an ML diagnostic dashboard Jaison developed. It uses Scikit-Learn (Gradient Boosting) to analyze tumor features and Streamlit for the user interface.<br><br>🔗 Demo: <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/" target="_blank">Live App</a><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System" target="_blank">GitHub Repository</a>`;
         }
         if (text.includes('loan')) {
             return `<strong>Loan Management System</strong> is a Django & PostgreSQL application Jaison created for credit score checking, payment amortization calendars, and role-based officer/client views.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Loan-Management-System" target="_blank">GitHub Repository</a>`;
