@@ -599,6 +599,143 @@ span.multiple-text {
     gap: 0.8rem;
 }
 
+/*==================== Experience ====================*/
+.experience {
+    background: transparent;
+}
+
+.experience-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.5rem !important;
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 100%;
+    align-items: stretch;
+}
+
+.experience-card {
+    width: 100%;
+    padding: 3.5rem !important;
+    background: rgba(15, 23, 42, 0.65) !important;
+    border-radius: 2rem !important;
+    border: 1px solid rgba(168, 85, 247, 0.3) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(168, 85, 247, 0.1) !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.experience-card:hover {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(168, 85, 247, 0.25) !important;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.exp-role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 50rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #4ade80;
+}
+
+.exp-duration {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+}
+
+.exp-body h3 {
+    font-size: 2.4rem;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.exp-body .company-name {
+    font-size: 1.6rem;
+    color: var(--main-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.exp-desc {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.exp-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.45rem;
+    color: var(--text-color);
+}
+
+.highlight-item i {
+    font-size: 1.8rem;
+    color: var(--main-color);
+    flex-shrink: 0;
+}
+
+.exp-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 50rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(168, 85, 247, 0.25);
+    border-color: var(--main-color);
+    transform: translateY(-2px);
+}
+
 .detail-info .status-pulse::after {
     content: '';
     width: 8px;
@@ -1750,6 +1887,12 @@ span.multiple-text {
 }
 
 /* Media Queries */
+@media (max-width: 992px) {
+    .experience-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 450px) {
     .chat-container {
         bottom: 8rem;

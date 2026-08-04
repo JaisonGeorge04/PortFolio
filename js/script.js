@@ -47,14 +47,14 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.img-box, .services-box, .portfolio-box, .contact form', { origin: 'bottom', interval: 200 });
+ScrollReveal().reveal('.img-box, .services-box, .portfolio-box, .experience-card, .contact form', { origin: 'bottom', interval: 200 });
 ScrollReveal().reveal('.home-content h1, .about .img-box', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 /*==================== typed js ====================*/
 if(document.querySelector('.multiple-text')) {
     const typed = new Typed('.multiple-text', {
-        strings: ['Web Developer', 'AI Engineer', 'Cloud &amp; DevOps Enthusiast', 'Software Developer'],
+        strings: ['Software Development Intern', 'Web Developer', 'AI Engineer', 'Cloud &amp; DevOps Enthusiast', 'Software Developer'],
         typeSpeed: 80,
         backSpeed: 60,
         backDelay: 1500,
@@ -424,6 +424,9 @@ if (certModal && closeCertModal) {
 }
 
 /*==================== AI Chatbot Logic ====================*/
+// Insert your Gemini API Key here. For a public site, restrict it by domain in Google Cloud Console.
+const GEMINI_API_KEY = ''; // Add your API key here if using AI chatbot
+
 const chatBtn = document.getElementById('ai-chat-btn');
 const chatContainer = document.getElementById('ai-chat-container');
 const closeChat = document.getElementById('close-chat');
@@ -477,18 +480,17 @@ if (chatBtn && chatContainer && closeChat && chatMessages && chatForm && chatInp
         showBotResponse("Hi, I'm Jaison's AI Assistant! 🤖<br><br>I can answer questions about Jaison's skills, latest projects, career journey, certificates, or provide his contact details.<br><br>What would you like to explore?");
     }
 
-    function handleUserMessage(message) {
+    async function handleUserMessage(message) {
         // Add user message to UI
         addMessage(message, 'user');
         
         // Show typing indicator and get bot response
         const typingId = showTypingIndicator();
         
-        setTimeout(() => {
-            removeTypingIndicator(typingId);
-            const reply = getAIResponse(message);
-            showBotResponse(reply);
-        }, 1000);
+        const reply = await getAIResponse(message);
+        
+        removeTypingIndicator(typingId);
+        showBotResponse(reply);
     }
 
     function addMessage(text, sender) {
@@ -554,7 +556,54 @@ if (chatBtn && chatContainer && closeChat && chatMessages && chatForm && chatInp
         }
     }
 
-    function getAIResponse(query) {
+    function getSystemPrompt() {
+        return `You are Jaison George's professional AI assistant for his portfolio website.
+Answer questions accurately and politely based ONLY on the following context. Do not make up information.
+Keep responses concise, friendly, and well-formatted using basic HTML (like <strong> for emphasis and <br> for new lines) or just plain text.
+If a question is completely unrelated to Jaison or tech, steer the conversation back to his portfolio.
+
+Context about Jaison George:
+- MCA graduate (2025) from LEAD College, B.Sc. CS from St. Thomas College.
+- Skills: Python, JavaScript, SQL, Java, HTML/CSS, Django, Streamlit, React, AWS, Docker, Jenkins, Git, AI Integration, Cybersecurity.
+- Projects: Hostel Management System (Django/SQL), Breast Cancer Prediction (ML/Streamlit), Loan Management System (Django/Postgres), Smart Flashcards (JS/CSS).
+- Certificates: TCS iON Smart Home Security, Prompt Engineering, Cybersecurity, Digital Marketing.
+- Contact: jaisongeorge699@gmail.com, LinkedIn, GitHub. Resume is available to download.`;
+    }
+
+    async function getAIResponse(query) {
+        // Use Gemini API if key is provided
+        if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== '') {
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: getSystemPrompt() + "\n\nUser Question: " + query }] }]
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        let aiText = data.candidates[0].content.parts[0].text;
+                        // Format markdown-like response to HTML for the chat UI
+                        aiText = aiText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                        aiText = aiText.replace(/\n/g, '<br>');
+                        return aiText;
+                    }
+                } else {
+                    console.error("Gemini API Error:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Gemini API Request Failed:", error);
+            }
+        }
+
+        // Fallback to static predefined rules if API fails or no key
+        return getStaticFallbackResponse(query);
+    }
+
+    function getStaticFallbackResponse(query) {
         const text = query.toLowerCase().trim();
 
         // 1. Specific project queries first
