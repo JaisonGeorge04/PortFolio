@@ -33,7 +33,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
 Portfolio Website/
 ├── index.html          # Main page
 ├── css/
-│   └── style.css       # Styles
+│   └── style.css       # Styles 
 ├── js/
 │   └── script.js       # Interactivity (nav, filters, modals, chatbot, form)
 ├── images/              # Screenshots, profile photos, certificates
