@@ -1681,6 +1681,36 @@ span.multiple-text {
     color: var(--main-color);
 }
 
+.key-chat-btn {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: var(--main-color);
+    border-radius: 50%;
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.key-chat-btn i {
+    font-size: 1.8rem;
+    color: var(--main-color);
+}
+
+.key-chat-btn:hover {
+    background: var(--main-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.key-chat-btn:hover i {
+    color: #fff;
+}
+
 /* Chat Messages */
 .chat-messages {
     flex: 1;

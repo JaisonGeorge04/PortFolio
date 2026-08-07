@@ -430,6 +430,8 @@ const GEMINI_API_KEY = ''; // Add your API key here if using AI chatbot
 const chatBtn = document.getElementById('ai-chat-btn');
 const chatContainer = document.getElementById('ai-chat-container');
 const closeChat = document.getElementById('close-chat');
+const chatKeyBtn = document.getElementById('chat-key-btn');
+const chatStatusText = document.getElementById('chat-status-text');
 const chatMessages = document.getElementById('chat-messages');
 const chatForm = document.getElementById('chat-input-form');
 const chatInput = document.getElementById('chat-input');
@@ -438,12 +440,50 @@ const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
 let isChatInitialized = false;
 
+function updateChatStatus() {
+    const activeKey = (typeof GEMINI_API_KEY !== 'undefined' && GEMINI_API_KEY.trim() !== '') 
+        ? GEMINI_API_KEY.trim() 
+        : localStorage.getItem('GEMINI_API_KEY');
+
+    if (chatStatusText) {
+        if (activeKey) {
+            chatStatusText.innerHTML = "⚡ Live Gemini AI Active";
+            chatStatusText.style.color = "#10b981";
+        } else {
+            chatStatusText.innerHTML = "Executive Recruiter AI";
+            chatStatusText.style.color = "#a855f7";
+        }
+    }
+}
+
+if (chatKeyBtn) {
+    chatKeyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const currentKey = localStorage.getItem('GEMINI_API_KEY') || GEMINI_API_KEY || '';
+        const userKey = prompt("🔑 Google Gemini API Key Setup:\n\nPaste your free Gemini API Key below to enable Live Generative AI mode.\n(Leave blank and click OK to reset to built-in Recruiter AI):", currentKey);
+
+        if (userKey !== null) {
+            const trimmed = userKey.trim();
+            if (trimmed) {
+                localStorage.setItem('GEMINI_API_KEY', trimmed);
+                alert("✅ Gemini API Key saved! Live Generative AI Mode is now ACTIVE.");
+            } else {
+                localStorage.removeItem('GEMINI_API_KEY');
+                alert("ℹ️ Key reset. Switched to built-in Executive Recruiter AI Mode.");
+            }
+            updateChatStatus();
+        }
+    });
+}
+
 if (chatBtn && chatContainer && closeChat && chatMessages && chatForm && chatInput) {
+    updateChatStatus();
     // Toggle chat visibility
     chatBtn.addEventListener('click', () => {
         chatContainer.classList.toggle('hidden');
         if (!chatContainer.classList.contains('hidden')) {
             chatInput.focus();
+            updateChatStatus();
             if (chatBadge) chatBadge.style.display = 'none'; // Hide notification dot
             if (!isChatInitialized) {
                 initializeChat();
@@ -557,109 +597,230 @@ if (chatBtn && chatContainer && closeChat && chatMessages && chatForm && chatInp
     }
 
     function getSystemPrompt() {
-        return `You are Jaison George's professional AI assistant for his portfolio website.
-Answer questions accurately and politely based ONLY on the following context. Do not make up information.
-Keep responses concise, friendly, and well-formatted using basic HTML (like <strong> for emphasis and <br> for new lines) or just plain text.
-If a question is completely unrelated to Jaison or tech, steer the conversation back to his portfolio.
+        return `You are Jaison George's Executive AI Recruiter Representative on his personal portfolio website.
+Your mission is to represent Jaison professionally, accurately, and persuasively to recruiters, hiring managers, and prospective employers.
 
-Context about Jaison George:
-- MCA graduate (2025) from LEAD College, B.Sc. CS from St. Thomas College.
-- Skills: Python, JavaScript, SQL, Java, HTML/CSS, Django, Streamlit, React, AWS, Docker, Jenkins, Git, AI Integration, Cybersecurity.
-- Projects: Hostel Management System (Django/SQL), Breast Cancer Prediction (ML/Streamlit), Loan Management System (Django/Postgres), Smart Flashcards (JS/CSS).
-- Certificates: TCS iON Smart Home Security, Prompt Engineering, Cybersecurity, Digital Marketing.
-- Contact: jaisongeorge699@gmail.com, LinkedIn, GitHub. Resume is available to download.`;
+CRITICAL DIRECTIVES:
+1. Grounding & Accuracy: Only answer based on verified facts about Jaison George provided below. Do not fabricate work experience or degrees not listed.
+2. Self-Introduction / "Who is Jaison?": Always present his complete, articulate introduction:
+   "Hi, my name is Jaison George. I am currently completing my Master of Computer Applications (MCA) under Calicut University (LEAD College, Autonomous, Palakkad). My MCA coursework and exams are completed, and I am actively seeking software engineering roles, Python/Django backend developer positions, full-stack, AI/ML, or DevOps opportunities. I completed my B.Sc in Computer Science from St. Thomas College, Kozhencherry. My key projects include a Django Hostel Management System, a Breast Cancer ML Prediction Tool, a Loan Management Platform, and a Smart FlashCard App. I have hands-on skills in Python, Django, SQL, React, AWS, Docker, Jenkins, and Cybersecurity. I am immediately available with zero notice period and open to Remote, Hybrid, Onsite work, and relocation anywhere."
+3. Executive Tone: Speak as Jaison's confident, articulate, and highly professional AI Executive Representative.
+4. Response Formatting: Use clean markdown styling (bolding, lists, and line breaks).
+
+VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
+- Full Name: Jaison George
+- Current Title: Software Developer | Python & Django Developer | AI Engineer | Cloud & DevOps Enthusiast
+- Education:
+  • Master of Computer Applications (MCA) (2025 - Present) — LEAD College (Autonomous), Palakkad (Affiliated with Calicut University). Coursework & exams completed. Focus: Software Architecture, Database Engineering & Data Analytics.
+  • B.Sc. in Computer Science (2022 - 2025) — St. Thomas College, Kozhencherry. Focus: Algorithms, Data Structures & OS.
+- Technical Skillset:
+  • Programming Languages: Python, JavaScript, SQL (PostgreSQL, SQLite), Java, HTML5, CSS3
+  • Backend & Frameworks: Django, REST APIs, Streamlit, React.js
+  • Cloud & DevOps: AWS (EC2, S3, Cloud Native, Security), Docker, Jenkins CI/CD, Terraform, Git, GitHub, Linux CLI
+  • AI, ML & Security: Generative AI, Prompt Engineering, Scikit-Learn (ML), Cybersecurity, Smart Home/IoT Security
+- Key Portfolio Projects:
+  1. Hostel Management System (Django, SQL, HTML/CSS) — Automates room allocations, student records, fee tracking & warden dashboards. GitHub: https://github.com/JaisonGeorge04/Hostel-Management-System.git
+  2. Breast Cancer Prediction System (Python, Scikit-Learn, Streamlit) — Diagnostic decision support tool using Gradient Boosting ML model. Live Demo: https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/ | GitHub: https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System
+  3. Loan Management System (Django, PostgreSQL, JS) — Financial platform calculating amortization schedules & credit scoring. GitHub: https://github.com/JaisonGeorge04/Loan-Management-System
+  4. Smart FlashCard Generator (Vanilla JS, HTML/CSS) — Interactive frontend app with 3D CSS card animation & LocalStorage persistence. GitHub: https://github.com/JaisonGeorge04/smart-flashcard-generator.git
+- Professional Certifications:
+  • TCS iON Industry Project: Securing Smart Home Ecosystems (90 Hours)
+  • Prompt Engineering for Generative AI
+  • Cybersecurity Fundamentals
+  • Digital Marketing & Web Strategy
+- Work & Hiring Terms:
+  • Availability / Notice Period: Immediate Joiner (0 days notice period)
+  • Work Preference: Open to Remote, Hybrid, or Onsite (Office) roles
+  • Relocation: Open to relocate anywhere across India (Bangalore, Kochi, Trivandrum, Hyderabad, Pune, Chennai, Mumbai) or internationally
+  • Target Roles: Software Engineer / Developer, Python / Django Backend Engineer, Full-Stack Developer, AI/ML Associate, Cloud / DevOps Associate
+- Contact Details:
+  • Email: jaisongeorge699@gmail.com
+  • LinkedIn: linkedin.com/in/jaison-george-887891310
+  • GitHub: github.com/JaisonGeorge04
+  • Resume: Available for download on portfolio (files/JaisonGeorge Resume.pdf)`;
+    }
+
+    function parseMarkdownToHTML(text) {
+        if (!text) return '';
+        let formatted = text;
+        // Bold **text**
+        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Italic *text*
+        formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        // Markdown Links [text](url)
+        formatted = formatted.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+        // Bullet list items (* or -)
+        formatted = formatted.replace(/^[\*\-]\s+(.*)$/gm, '• $1');
+        // Headers ### Header
+        formatted = formatted.replace(/^###?\s+(.*)$/gm, '<strong>$1</strong>');
+        // Newlines to line breaks
+        formatted = formatted.replace(/\n/g, '<br>');
+        return formatted;
     }
 
     async function getAIResponse(query) {
-        // Use Gemini API if key is provided
-        if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== '') {
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: getSystemPrompt() + "\n\nUser Question: " + query }] }]
-                    })
-                });
+        // Check for Gemini API Key in constant or localStorage
+        const apiKey = (typeof GEMINI_API_KEY !== 'undefined' && GEMINI_API_KEY.trim() !== '') 
+            ? GEMINI_API_KEY.trim() 
+            : localStorage.getItem('GEMINI_API_KEY');
 
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.candidates && data.candidates[0].content.parts[0].text) {
-                        let aiText = data.candidates[0].content.parts[0].text;
-                        // Format markdown-like response to HTML for the chat UI
-                        aiText = aiText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                        aiText = aiText.replace(/\n/g, '<br>');
-                        return aiText;
+        if (apiKey) {
+            // Models to try in order of preference
+            const models = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest'];
+
+            for (const model of models) {
+                try {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            system_instruction: {
+                                parts: [{ text: getSystemPrompt() }]
+                            },
+                            contents: [
+                                { role: 'user', parts: [{ text: "Recruiter Question: " + query }] }
+                            ]
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0].text) {
+                            const rawText = data.candidates[0].content.parts[0].text;
+                            return parseMarkdownToHTML(rawText);
+                        }
+                    } else {
+                        const errData = await response.json().catch(() => ({}));
+                        console.warn(`Gemini API (${model}) returned HTTP ${response.status}:`, errData);
+                        if (errData.error && errData.error.message) {
+                            console.error("Gemini API Error Detail:", errData.error.message);
+                        }
                     }
-                } else {
-                    console.error("Gemini API Error:", response.statusText);
+                } catch (error) {
+                    console.warn(`Gemini API call failed for ${model}:`, error);
                 }
-            } catch (error) {
-                console.error("Gemini API Request Failed:", error);
             }
+
+            console.warn("Live Gemini API unavailable or key invalid. Falling back to built-in Executive Recruiter AI matcher.");
         }
 
-        // Fallback to static predefined rules if API fails or no key
+        // Use Executive Recruiter AI Matcher (Offline / No Key required)
         return getStaticFallbackResponse(query);
     }
 
     function getStaticFallbackResponse(query) {
         const text = query.toLowerCase().trim();
 
-        // 1. Specific project queries first
+        // 1. Recruiter Core Intent: Why Hire Jaison / Value Proposition
+        if (text.includes('why hire') || text.includes('why should') || text.includes('reasons to hire') || text.includes('why choose') || text.includes('value') || text.includes('why jaison')) {
+            return `<strong>Why Jaison George is a Strong Hire:</strong><br><br>• 🚀 <strong>Solid Academic Foundation:</strong> MCA Graduate with deep Computer Science fundamentals.<br>• ⚙️ <strong>Production-Ready Backend:</strong> Hands-on experience with Python, Django, REST APIs, and relational SQL.<br>• 🤖 <strong>AI & ML Capabilities:</strong> Deployed real-world ML diagnostic tools (Gradient Boosting) and GenAI integrations.<br>• ☁️ <strong>Cloud & DevOps Awareness:</strong> Practical exposure to AWS, Docker, Jenkins CI/CD, and TCS iON cybersecurity principles.<br>• ⚡ <strong>Immediate Availability:</strong> Ready to onboard immediately with zero notice period.<br><br>Would you like to schedule an interview or explore his <a href="#project">Projects</a>?`;
+        }
+
+        // 2. Availability, Notice Period & Onboarding
+        if (text.includes('notice') || text.includes('available') || text.includes('availability') || text.includes('start date') || text.includes('when can') || text.includes('join') || text.includes('onboard')) {
+            return `⚡ <strong>Immediate Availability!</strong><br><br>Jaison has completed his degree program and is available to join your team <strong>immediately with zero notice period</strong>. He is open to full-time roles, internships, or contract positions.`;
+        }
+
+        // 3. Location, Relocation & Work Mode (Remote / Hybrid / Onsite)
+        if (text.includes('relocat') || text.includes('location') || text.includes('remote') || text.includes('hybrid') || text.includes('onsite') || text.includes('office') || text.includes('wfh') || text.includes('city') || text.includes('bangalore') || text.includes('cochin') || text.includes('kochi') || text.includes('trivandrum') || text.includes('hyderabad') || text.includes('pune') || text.includes('chennai')) {
+            return `📍 <strong>Work Location & Relocation Flexibility:</strong><br><br>Jaison is highly flexible regarding work environments:<br>• ✅ <strong>Remote / Work From Home</strong><br>• ✅ <strong>Hybrid Setup</strong><br>• ✅ <strong>Onsite / Office</strong><br><br>He is fully willing to <strong>relocate anywhere in India or internationally</strong> for suitable opportunities.`;
+        }
+
+        // 4. Target Roles & Positions Sought
+        if (text.includes('role') || text.includes('roles') || text.includes('position') || text.includes('positions') || text.includes('job type') || text.includes('seeking') || text.includes('looking for') || text.includes('target role')) {
+            return `🎯 <strong>Roles Jaison is Seeking:</strong><br><br>• 💻 <strong>Software Engineer / Developer</strong><br>• 🐍 <strong>Python / Django Backend Engineer</strong><br>• 🌐 <strong>Full-Stack Web Developer</strong><br>• 🤖 <strong>AI / Machine Learning Associate</strong><br>• ☁️ <strong>Cloud & DevOps Associate</strong>`;
+        }
+
+        // 5. Strengths & Core Competencies
+        if (text.includes('strength') || text.includes('strengths') || text.includes('strongest') || text.includes('best skill') || text.includes('superpower') || text.includes('advantage')) {
+            return `🌟 <strong>Jaison's Core Strengths:</strong><br><br>1. <strong>Backend Architecture:</strong> Writing clean, maintainable Python/Django code with optimized SQL databases.<br>2. <strong>AI & Data Integration:</strong> Bridging machine learning algorithms with accessible Web UIs (Streamlit/React).<br>3. <strong>Agile Learning:</strong> Rapidly mastering new cloud and DevOps tools (AWS, Docker, Jenkins) to solve real business problems.`;
+        }
+
+        // 6. Weakness / Areas of Growth
+        if (text.includes('weakness') || text.includes('weaknesses') || text.includes('improvement') || text.includes('flaw')) {
+            return `💡 <strong>Growth Mindset & Attention to Detail:</strong><br><br>Jaison tends to be a perfectionist when designing user interfaces and data schemas, sometimes spending extra time testing rare edge cases. To balance this, he utilizes structured task management and agile sprint deadlines to deliver projects on time.`;
+        }
+
+        // 7. Salary & Package Expectations
+        if (text.includes('salary') || text.includes('ctc') || text.includes('compensation') || text.includes('package') || text.includes('pay') || text.includes('expected')) {
+            return `💼 <strong>Compensation & Package:</strong><br><br>Jaison is focused on joining an innovative team where he can contribute and grow. He is open to standard industry-competitive packages appropriate for entry-to-mid level Software Developer roles, and happy to discuss details during an interview.`;
+        }
+
+        // 8. Technical Deep Dive: Python & Backend
+        if (text.includes('python') || text.includes('django') || text.includes('backend') || text.includes('api') || text.includes('apis') || text.includes('rest') || text.includes('database') || text.includes('postgres') || text.includes('sql')) {
+            return `🐍 <strong>Backend & Database Mastery:</strong><br><br>Jaison excels in Python ecosystem development:<br>• <strong>Frameworks:</strong> Django & REST Framework<br>• <strong>Databases:</strong> PostgreSQL, SQL query optimization, ORM design<br>• <strong>Key Apps Built:</strong> Loan Management System (amortization engines) & Hostel Management Platform.<br><br>Explore the <a href="#skills">Skills</a> or <a href="#project">Projects</a> section for details!`;
+        }
+
+        // 9. Technical Deep Dive: AI, ML & GenAI
+        if (text.includes('machine learning') || text.includes('ml') || text.includes('genai') || text.includes('ai') || text.includes('artificial intelligence') || text.includes('scikit') || text.includes('streamlit') || text.includes('prompt')) {
+            return `🤖 <strong>AI & Machine Learning Capabilities:</strong><br><br>• <strong>Generative AI & Prompt Engineering:</strong> Designing structured context prompts & LLM integration workflows.<br>• <strong>Machine Learning:</strong> Built the <em>Breast Cancer Prediction System</em> using Scikit-Learn Gradient Boosting, achieving high diagnostic accuracy and deployed on Streamlit.<br><br>Check out the live model in the <a href="#project">Projects</a> section!`;
+        }
+
+        // 10. Technical Deep Dive: Cloud, DevOps & Security
+        if (text.includes('cloud') || text.includes('aws') || text.includes('docker') || text.includes('jenkins') || text.includes('devops') || text.includes('terraform') || text.includes('git') || text.includes('github') || text.includes('ci/cd') || text.includes('pipeline') || text.includes('linux') || text.includes('cyber') || text.includes('security') || text.includes('tcs')) {
+            return `☁️ <strong>Cloud, DevOps & Security Stack:</strong><br><br>• <strong>Cloud & Infra:</strong> AWS (EC2, S3), Docker Containerization, Terraform IaC<br>• <strong>CI/CD & Version Control:</strong> Jenkins Automation, Git, GitHub Workflows, Linux CLI<br>• <strong>Security Certification:</strong> TCS iON Industry Project (Smart Home Ecosystem Security - 90 Hours).`;
+        }
+
+        // 11. Specific Projects
         if (text.includes('hostel')) {
-            return `<strong>Hostel Management System</strong> is a full-featured Django web application Jaison built to automate room allocations, warden notifications, and payment tracking. <br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Hostel-Management-System.git" target="_blank">GitHub Repository</a><br>📂 Or click "Details" under the <a href="#project">Projects</a> section!`;
+            return `🏢 <strong>Hostel Management System</strong><br><br>A full-featured Django web application built by Jaison to automate room allocations, student registration, fee tracking, and warden notifications.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Hostel-Management-System.git" target="_blank">GitHub Repository</a>`;
         }
         if (text.includes('cancer') || text.includes('breast') || text.includes('tumor')) {
-            return `<strong>Breast Cancer Prediction System</strong> is an ML diagnostic dashboard Jaison developed. It uses Scikit-Learn (Gradient Boosting) to analyze tumor features and Streamlit for the user interface.<br><br>🔗 Demo: <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/" target="_blank">Live App</a><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System" target="_blank">GitHub Repository</a>`;
+            return `🔬 <strong>Breast Cancer Prediction System</strong><br><br>A diagnostic decision-support system using a Gradient Boosting ML model to classify tumor features, with an interactive Streamlit UI.<br><br>🔗 Demo: <a href="https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/" target="_blank">Live App</a> | 🔗 Code: <a href="https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System" target="_blank">GitHub</a>`;
         }
         if (text.includes('loan')) {
-            return `<strong>Loan Management System</strong> is a Django & PostgreSQL application Jaison created for credit score checking, payment amortization calendars, and role-based officer/client views.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Loan-Management-System" target="_blank">GitHub Repository</a>`;
+            return `💳 <strong>Loan Management System</strong><br><br>A Django & PostgreSQL financial application for credit evaluation, payment tracking, and dynamic amortization schedule calculations.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/Loan-Management-System" target="_blank">GitHub Repository</a>`;
         }
         if (text.includes('flashcard')) {
-            return `<strong>Smart FlashCard Generator</strong> is an interactive JS/CSS web app built to explore client-side storage, featuring custom 3D card flipping animations.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank">GitHub Repository</a>`;
+            return `🎴 <strong>Smart FlashCard Generator</strong><br><br>An interactive frontend application featuring custom 3D card flipping, study tracking, and LocalStorage data persistence.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank">GitHub Repository</a>`;
         }
 
-        // 2. Main intent queries
-        if (text.includes('who are you') || text.includes('what is your name') || text.includes('who made you')) {
-            return `I'm Jaison's custom AI portfolio assistant! I can guide you through his projects, credentials, technical stack, or assist you in reaching out to him.`;
-        }
-        
-        if (/\b(hello|hi|hey|greetings|yo)\b/.test(text)) {
-            return `Hello! 👋 How can I help you learn more about Jaison's professional background today?`;
-        }
-
-        if (text.includes('who is jaison') || text.includes('about jaison') || text.includes('profile') || text.includes('tell me about') || text.includes('who is he')) {
-            return `Jaison George is an MCA graduate and Software Developer who excels at building Python, Django, SQL, and JS applications. He is passionate about Artificial Intelligence (GenAI integrations), cloud infrastructure, and cybersecurity.<br><br>Explore the <a href="#about">About Me</a> section to read his bio.`;
-        }
-
-        if (text.includes('skill') || text.includes('skills') || text.includes('technolog') || text.includes('language') || text.includes('framework') || text.includes('stack') || text.includes('python') || text.includes('django') || text.includes('aws') || text.includes('devops')) {
-            return `Jaison's core skills are:<br>• 🐍 <strong>Languages:</strong> Python, JavaScript, SQL, Java, HTML5/CSS3<br>• ⚙️ <strong>Frameworks:</strong> Django, Streamlit, React, REST APIs<br>• ☁️ <strong>DevOps/Cloud:</strong> AWS, Docker, Jenkins, Terraform, Git<br>• 🤖 <strong>AI & Security:</strong> GenAI Integrations, Prompt Engineering, Cybersecurity, Smart Home/IoT security.<br><br>Check out the <a href="#skills">Skills</a> section for the full visual breakdown!`;
-        }
-
+        // 12. General Projects Overview
         if (text.includes('project') || text.includes('projects') || text.includes('portfolio') || text.includes('work') || text.includes('app') || text.includes('apps')) {
-            return `Jaison has designed and deployed several software applications:<br>• 🏢 <strong>Hostel Management System</strong> (Django, relational SQL, booking dashboard)<br>• 🔬 <strong>Breast Cancer Classifier</strong> (Gradient Boosting model + Streamlit)<br>• 💳 <strong>Loan Management Platform</strong> (Django/PostgreSQL + amortization math)<br>• 🎴 <strong>Smart FlashCards</strong> (Vanilla JS + LocalStorage + 3D card layouts)<br><br>You can click on any card in the <a href="#project">Projects</a> section to open details and code links.`;
+            return `📂 <strong>Jaison's Key Featured Projects:</strong><br><br>1. 🏢 <strong>Hostel Management System</strong> (Django + SQL)<br>2. 🔬 <strong>Breast Cancer ML Predictor</strong> (Gradient Boosting + Streamlit)<br>3. 💳 <strong>Loan Management System</strong> (Django + PostgreSQL)<br>4. 🎴 <strong>Smart FlashCards App</strong> (JS + LocalStorage)<br><br>Click on any card in the <a href="#project">Projects</a> section for live demos and code links!`;
         }
 
-        if (text.includes('education') || text.includes('college') || text.includes('school') || text.includes('university') || text.includes('mca') || text.includes('bsc') || text.includes('study') || text.includes('lead') || text.includes('st thomas')) {
-            return `Jaison's academic background includes:<br>• 🎓 <strong>Master of Computer Applications (MCA)</strong> (2025 - Present) at LEAD College, Palakkad. Focusing on Advanced App Development and Data Analytics.<br>• 🎓 <strong>B.Sc. in Computer Science</strong> (2022 - 2025) at St. Thomas College, Kozhencherry.<br><br>View his career timeline in the <a href="#journey">Journey</a> section!`;
+        // 13. Education & Qualifications
+        if (text.includes('education') || text.includes('qualification') || text.includes('qualifications') || text.includes('degree') || text.includes('graduat') || text.includes('academic') || text.includes('academics') || text.includes('college') || text.includes('school') || text.includes('university') || text.includes('mca') || text.includes('bsc') || text.includes('b.sc') || text.includes('study') || text.includes('studies') || text.includes('lead') || text.includes('st thomas')) {
+            return `🎓 <strong>Academic Credentials & Qualifications:</strong><br><br>• 🎓 <strong>Master of Computer Applications (MCA)</strong> (2025 - Present)<br>LEAD College (Autonomous), Palakkad — Focus on Advanced App Dev & Data Analytics.<br><br>• 🎓 <strong>Bachelor of Science in Computer Science (B.Sc. CS)</strong> (2022 - 2025)<br>St. Thomas College, Kozhencherry.<br><br>View details in the <a href="#journey">Journey</a> section!`;
         }
 
+        // 14. Certifications
         if (text.includes('certificate') || text.includes('certif') || text.includes('course') || text.includes('tcs') || text.includes('prompt engineering') || text.includes('security')) {
-            return `Jaison holds multiple certifications:<br>• 🛡️ <strong>TCS iON Industry Project:</strong> Smart Home Ecosystem Security.<br>• 🧠 <strong>Prompt Engineering:</strong> Structuring AI inputs.<br>• 💻 <strong>Cybersecurity:</strong> Fundamentals of network & data protection.<br>• 📈 <strong>Digital Marketing:</strong> SEO and strategy fundamentals.<br><br>View and download credentials in the <a href="#certificates">Certificates</a> section!`;
+            return `📜 <strong>Professional Certifications:</strong><br><br>• 🛡️ <strong>TCS iON Industry Project:</strong> Securing Smart Home Ecosystems (90 Hours)<br>• 🧠 <strong>Prompt Engineering:</strong> Structuring AI LLM Prompts<br>• 💻 <strong>Cybersecurity Fundamentals:</strong> Network & System Defense<br>• 📈 <strong>Digital Marketing:</strong> SEO & Web Strategy<br><br>View & download credentials in the <a href="#certificates">Certificates</a> section!`;
         }
 
-        if (text.includes('contact') || text.includes('email') || text.includes('phone') || text.includes('linkedin') || text.includes('github') || text.includes('message') || text.includes('hire') || text.includes('reach')) {
-            return `Here are the ways you can reach Jaison:<br>• 📧 Email: <a href="mailto:jaisongeorge699@gmail.com">jaisongeorge699@gmail.com</a><br>• 💼 LinkedIn: <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank">LinkedIn Profile</a><br>• 🐙 GitHub: <a href="https://github.com/JaisonGeorge04" target="_blank">GitHub Profile</a><br>• ✉️ Directly send a message via the form in the <a href="#contact">Contact</a> section!`;
+        // 15. Soft Skills & Team Dynamics
+        if (text.includes('soft skill') || text.includes('teamwork') || text.includes('communication') || text.includes('problem solving') || text.includes('adaptable') || text.includes('adaptability') || text.includes('collaboration')) {
+            return `🤝 <strong>Soft Skills & Work Ethic:</strong><br><br>• 🗣️ <strong>Clear Technical Communication:</strong> Translating complex data into user-friendly software.<br>• 🧠 <strong>Analytical Problem Solving:</strong> Structured approach to debugging & algorithm optimization.<br>• 🔄 <strong>Adaptability:</strong> Thrives in fast-paced teams and eager to learn new tech stacks.`;
+        }
+
+        // 16. Contact & Resume
+        if (text.includes('contact') || text.includes('email') || text.includes('phone') || text.includes('linkedin') || text.includes('github') || text.includes('hire') || text.includes('reach') || text.includes('mail') || text.includes('touch')) {
+            return `📬 <strong>Get in Touch with Jaison:</strong><br><br>• 📧 Email: <a href="mailto:jaisongeorge699@gmail.com">jaisongeorge699@gmail.com</a><br>• 💼 LinkedIn: <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank">LinkedIn Profile</a><br>• 🐙 GitHub: <a href="https://github.com/JaisonGeorge04" target="_blank">GitHub Profile</a><br>• ✉️ Or fill out the form in the <a href="#contact">Contact</a> section!`;
         }
 
         if (text.includes('resume') || text.includes('cv')) {
-            return `You can view or download Jaison's professional resume here:<br><a href="files/JaisonGeorge Resume.pdf" target="_blank" class="btn" style="color:#fff; padding: 0.6rem 1.6rem; font-size:1.2rem; display:inline-flex; margin-top:0.5rem;">Download Resume <i class='bx bx-download'></i></a>`;
+            return `📄 <strong>Download Jaison's Resume:</strong><br><br><a href="files/JaisonGeorge Resume.pdf" target="_blank" class="btn" style="color:#fff; padding: 0.6rem 1.6rem; font-size:1.2rem; display:inline-flex; margin-top:0.5rem;">Download Resume <i class='bx bx-download'></i></a>`;
         }
 
-        // 3. General Fallback
-        return `I'm not completely sure about that, but Jaison is skilled in <strong>Python, Django, AWS, and Generative AI</strong>. <br><br>Would you like to hear about his <strong>projects</strong>, see his <strong>skills</strong>, check his <strong>certificates</strong>, or get his <strong>contact</strong> info?`;
+        // 17. Greetings & Bot Identity
+        if (/\b(hello|hi|hey|greetings|yo)\b/.test(text)) {
+            return `Hello! 👋 I'm Jaison's Executive AI Representative.<br><br>I'm here to assist recruiters and hiring managers with any questions about Jaison's experience, technical skills, projects, availability, or contact details. How can I help you today?`;
+        }
+
+        if (text.includes('introduce') || text.includes('self intro') || text.includes('tell me about yourself') || text.includes('introduction') || text.includes('who is jaison') || text.includes('about jaison') || text.includes('tell me about jaison') || text.includes('bio')) {
+            return `👋 <strong>Jaison George's Self-Introduction:</strong><br><br>"Hi, my name is <strong>Jaison George</strong>. I am currently pursuing a Master of Computer Applications (MCA) under <strong>Calicut University (LEAD College, Autonomous)</strong>. My MCA coursework and semester examinations are over, and now I am moving on to internships and placements. I completed my Bachelor of Science in Computer Science from St. Thomas College, Kozhencherry.<br><br>During my academic journey, I built several projects. One of my main projects is the <strong>Hostel Management System</strong>, which helps hostel administrators manage student accommodation and maintain records. Through this project, I gained practical experience in software development, database management, and problem-solving. Apart from this, I have built several other projects, including a <strong>Loan Management System</strong>, a <strong>Breast Cancer Prediction System</strong>, and my personal portfolio.<br><br>In terms of technical skills, I have knowledge of <strong>Python, HTML, CSS, JavaScript, React, and SQL</strong>. I also have hands-on experience with <strong>AWS</strong> in Cloud Native, Cloud Security, and DevOps.<br><br>I am a quick learner, adaptable, and self-motivated, eager to contribute my skills to an organization and grow professionally while working confidently as part of a team."`;
+        }
+
+        if (text.includes('who are you') || text.includes('what is your name') || text.includes('who made you')) {
+            return `I am Jaison George's Executive AI Representative! Built to give recruiters instant, comprehensive answers about Jaison's candidate profile, software projects, and technical skills.`;
+        }
+
+        // 18. Smart Recruiter Smart Summary Fallback
+        return `I'm Jaison's Executive AI Representative! 🤖<br><br>Here is a quick summary for recruiters:<br>• 🎓 <strong>Highest Qualification:</strong> MCA (Calicut University / LEAD College)<br>• 💻 <strong>Tech Stack:</strong> Python, React, SQL, HTML/CSS, AWS (Cloud Native/Security/DevOps)<br>• ⚡ <strong>Availability:</strong> Immediate (Zero notice period)<br>• 📍 <strong>Work Preference:</strong> Open to Remote, Hybrid, Onsite & Relocation<br><br>Feel free to ask me for Jaison's <strong>self introduction</strong>, <strong>projects</strong>, <strong>skills</strong>, <strong>strengths</strong>, or <strong>contact info</strong>!`;
     }
 }
+
 
 
