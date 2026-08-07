@@ -275,7 +275,7 @@ const projectsData = {
         desc: 'An AI-powered ATS resume evaluation platform built with Streamlit and Gemini LLMs. It parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate personalized feedback for job seekers.',
         challenges: 'Engineered custom prompt pipelines for structured JSON extraction from PDF resume text, ensuring fast, accurate ATS scoring and actionable skill gap recommendations.',
         github: 'https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git',
-        live: ''
+        live: 'https://ai-resume-analyzer-ten-roan.vercel.app'
     }
 };
 
@@ -631,7 +631,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
   2. Breast Cancer Prediction System (Python, Scikit-Learn, Streamlit) — Diagnostic decision support tool using Gradient Boosting ML model. Live Demo: https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/ | GitHub: https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System
   3. Loan Management System (Django, PostgreSQL, JS) — Financial platform calculating amortization schedules & credit scoring. GitHub: https://github.com/JaisonGeorge04/Loan-Management-System
   4. Smart FlashCard Generator (Vanilla JS, HTML/CSS) — Interactive frontend app with 3D CSS card animation & LocalStorage persistence. GitHub: https://github.com/JaisonGeorge04/smart-flashcard-generator.git
-  5. AI Resume Analyzer (Python, Streamlit, Gemini AI, PyPDF2) — Evaluates candidate resumes against job descriptions for ATS match scoring & keyword gap analysis. GitHub: https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git
+  5. AI Resume Analyzer (Python, Streamlit, Gemini AI, PyPDF2) — Evaluates candidate resumes against job descriptions for ATS match scoring & keyword gap analysis. Live Demo: https://ai-resume-analyzer-ten-roan.vercel.app | GitHub: https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git
 - Professional Certifications:
   • TCS iON Industry Project: Securing Smart Home Ecosystems (90 Hours)
   • Prompt Engineering for Generative AI
@@ -784,7 +784,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
             return `🎴 <strong>Smart FlashCard Generator</strong><br><br>An interactive frontend application featuring custom 3D card flipping, study tracking, and LocalStorage data persistence.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank">GitHub Repository</a>`;
         }
         if (text.includes('analyzer') || text.includes('ats') || (text.includes('resume') && text.includes('ai'))) {
-            return `📄 <strong>AI Resume Analyzer</strong><br><br>An AI-powered ATS resume evaluator built with Python, Streamlit, and Gemini LLMs. Parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate actionable feedback.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git" target="_blank">GitHub Repository</a>`;
+            return `📄 <strong>AI Resume Analyzer</strong><br><br>An AI-powered ATS resume evaluator built with Python, Streamlit, and Gemini LLMs. Parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate actionable feedback.<br><br>🔗 Demo: <a href="https://ai-resume-analyzer-ten-roan.vercel.app" target="_blank">Live App</a> | 🔗 Code: <a href="https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git" target="_blank">GitHub</a>`;
         }
 
         // 12. General Projects Overview
