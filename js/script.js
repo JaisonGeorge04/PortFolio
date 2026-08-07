@@ -268,6 +268,14 @@ const projectsData = {
         challenges: 'Crafted smooth CSS 3D card-flip transitions for a tactile feel. Optimized bulk CSV importing and exporting mechanisms to let users share card sets easily.',
         github: 'https://github.com/JaisonGeorge04/smart-flashcard-generator.git',
         live: ''
+    },
+    analyzer: {
+        title: 'AI Resume Analyzer',
+        tags: ['Python', 'Streamlit', 'Google Gemini AI', 'NLP', 'PyPDF2'],
+        desc: 'An AI-powered ATS resume evaluation platform built with Streamlit and Gemini LLMs. It parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate personalized feedback for job seekers.',
+        challenges: 'Engineered custom prompt pipelines for structured JSON extraction from PDF resume text, ensuring fast, accurate ATS scoring and actionable skill gap recommendations.',
+        github: 'https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git',
+        live: ''
     }
 };
 
@@ -623,6 +631,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
   2. Breast Cancer Prediction System (Python, Scikit-Learn, Streamlit) — Diagnostic decision support tool using Gradient Boosting ML model. Live Demo: https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/ | GitHub: https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System
   3. Loan Management System (Django, PostgreSQL, JS) — Financial platform calculating amortization schedules & credit scoring. GitHub: https://github.com/JaisonGeorge04/Loan-Management-System
   4. Smart FlashCard Generator (Vanilla JS, HTML/CSS) — Interactive frontend app with 3D CSS card animation & LocalStorage persistence. GitHub: https://github.com/JaisonGeorge04/smart-flashcard-generator.git
+  5. AI Resume Analyzer (Python, Streamlit, Gemini AI, PyPDF2) — Evaluates candidate resumes against job descriptions for ATS match scoring & keyword gap analysis. GitHub: https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git
 - Professional Certifications:
   • TCS iON Industry Project: Securing Smart Home Ecosystems (90 Hours)
   • Prompt Engineering for Generative AI
@@ -774,10 +783,13 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
         if (text.includes('flashcard')) {
             return `🎴 <strong>Smart FlashCard Generator</strong><br><br>An interactive frontend application featuring custom 3D card flipping, study tracking, and LocalStorage data persistence.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank">GitHub Repository</a>`;
         }
+        if (text.includes('analyzer') || text.includes('ats') || (text.includes('resume') && text.includes('ai'))) {
+            return `📄 <strong>AI Resume Analyzer</strong><br><br>An AI-powered ATS resume evaluator built with Python, Streamlit, and Gemini LLMs. Parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate actionable feedback.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git" target="_blank">GitHub Repository</a>`;
+        }
 
         // 12. General Projects Overview
         if (text.includes('project') || text.includes('projects') || text.includes('portfolio') || text.includes('work') || text.includes('app') || text.includes('apps')) {
-            return `📂 <strong>Jaison's Key Featured Projects:</strong><br><br>1. 🏢 <strong>Hostel Management System</strong> (Django + SQL)<br>2. 🔬 <strong>Breast Cancer ML Predictor</strong> (Gradient Boosting + Streamlit)<br>3. 💳 <strong>Loan Management System</strong> (Django + PostgreSQL)<br>4. 🎴 <strong>Smart FlashCards App</strong> (JS + LocalStorage)<br><br>Click on any card in the <a href="#project">Projects</a> section for live demos and code links!`;
+            return `📂 <strong>Jaison's Key Featured Projects:</strong><br><br>1. 📄 <strong>AI Resume Analyzer</strong> (Python + Streamlit + Gemini AI)<br>2. 🏢 <strong>Hostel Management System</strong> (Django + SQL)<br>3. 🔬 <strong>Breast Cancer ML Predictor</strong> (Gradient Boosting + Streamlit)<br>4. 💳 <strong>Loan Management System</strong> (Django + PostgreSQL)<br>5. 🎴 <strong>Smart FlashCards App</strong> (JS + LocalStorage)<br><br>Click on any card in the <a href="#project">Projects</a> section for live demos and code links!`;
         }
 
         // 13. Education & Qualifications
