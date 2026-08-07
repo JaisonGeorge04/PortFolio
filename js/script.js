@@ -270,10 +270,10 @@ const projectsData = {
         live: ''
     },
     analyzer: {
-        title: 'AI Resume Analyzer',
-        tags: ['Python', 'Streamlit', 'Google Gemini AI', 'NLP', 'PyPDF2'],
-        desc: 'An AI-powered ATS resume evaluation platform built with Streamlit and Gemini LLMs. It parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate personalized feedback for job seekers.',
-        challenges: 'Engineered custom prompt pipelines for structured JSON extraction from PDF resume text, ensuring fast, accurate ATS scoring and actionable skill gap recommendations.',
+        title: 'AI Resume Analyzer & Optimizer',
+        tags: ['React', 'FastAPI', 'Python', 'Gemini AI', 'Vite', 'REST APIs'],
+        desc: 'An AI-powered web application that analyzes resumes against job descriptions, calculates ATS compatibility scores, identifies missing keywords, and provides AI-generated recommendations to improve resume quality. Features an interactive dark-mode interface with real-time analysis and document parsing for PDF and DOCX files.',
+        challenges: 'Developed a full-stack AI application using React and FastAPI with Google Gemini AI integration for intelligent resume evaluation. Implemented ATS match scoring, keyword gap analysis, PDF/DOCX parsing, Google XYZ bullet-point optimization, and a mock offline analysis mode while designing responsive REST API workflows and a modern glassmorphism UI.',
         github: 'https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git',
         live: 'https://ai-resume-analyzer-ten-roan.vercel.app'
     }
@@ -631,7 +631,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
   2. Breast Cancer Prediction System (Python, Scikit-Learn, Streamlit) — Diagnostic decision support tool using Gradient Boosting ML model. Live Demo: https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/ | GitHub: https://github.com/JaisonGeorge04/Breast_Cancer_Prediction_System
   3. Loan Management System (Django, PostgreSQL, JS) — Financial platform calculating amortization schedules & credit scoring. GitHub: https://github.com/JaisonGeorge04/Loan-Management-System
   4. Smart FlashCard Generator (Vanilla JS, HTML/CSS) — Interactive frontend app with 3D CSS card animation & LocalStorage persistence. GitHub: https://github.com/JaisonGeorge04/smart-flashcard-generator.git
-  5. AI Resume Analyzer (Python, Streamlit, Gemini AI, PyPDF2) — Evaluates candidate resumes against job descriptions for ATS match scoring & keyword gap analysis. Live Demo: https://ai-resume-analyzer-ten-roan.vercel.app | GitHub: https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git
+  5. AI Resume Analyzer & Optimizer (React, FastAPI, Python, Gemini AI, Vite, REST APIs) — Full-stack AI application calculating ATS compatibility scores, keyword gaps, PDF/DOCX parsing & Google XYZ bullet optimization. Live Demo: https://ai-resume-analyzer-ten-roan.vercel.app | GitHub: https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git
 - Professional Certifications:
   • TCS iON Industry Project: Securing Smart Home Ecosystems (90 Hours)
   • Prompt Engineering for Generative AI
@@ -784,12 +784,12 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
             return `🎴 <strong>Smart FlashCard Generator</strong><br><br>An interactive frontend application featuring custom 3D card flipping, study tracking, and LocalStorage data persistence.<br><br>🔗 Code: <a href="https://github.com/JaisonGeorge04/smart-flashcard-generator.git" target="_blank">GitHub Repository</a>`;
         }
         if (text.includes('analyzer') || text.includes('ats') || (text.includes('resume') && text.includes('ai'))) {
-            return `📄 <strong>AI Resume Analyzer</strong><br><br>An AI-powered ATS resume evaluator built with Python, Streamlit, and Gemini LLMs. Parses uploaded candidate resumes against target job descriptions to analyze match scores, identify missing technical keywords, and generate actionable feedback.<br><br>🔗 Demo: <a href="https://ai-resume-analyzer-ten-roan.vercel.app" target="_blank">Live App</a> | 🔗 Code: <a href="https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git" target="_blank">GitHub</a>`;
+            return `📄 <strong>AI Resume Analyzer & Optimizer</strong><br><br>Full-stack AI web application built with React, FastAPI, Python & Gemini AI. Analyzes resumes against job descriptions, calculates ATS compatibility scores, parses PDF/DOCX files, performs keyword gap analysis, and optimizes bullet points using Google XYZ formula.<br><br>🔗 Demo: <a href="https://ai-resume-analyzer-ten-roan.vercel.app" target="_blank">Live App</a> | 🔗 Code: <a href="https://github.com/JaisonGeorge04/AI-Resume-Analyzer.git" target="_blank">GitHub</a>`;
         }
 
         // 12. General Projects Overview
         if (text.includes('project') || text.includes('projects') || text.includes('portfolio') || text.includes('work') || text.includes('app') || text.includes('apps')) {
-            return `📂 <strong>Jaison's Key Featured Projects:</strong><br><br>1. 📄 <strong>AI Resume Analyzer</strong> (Python + Streamlit + Gemini AI)<br>2. 🏢 <strong>Hostel Management System</strong> (Django + SQL)<br>3. 🔬 <strong>Breast Cancer ML Predictor</strong> (Gradient Boosting + Streamlit)<br>4. 💳 <strong>Loan Management System</strong> (Django + PostgreSQL)<br>5. 🎴 <strong>Smart FlashCards App</strong> (JS + LocalStorage)<br><br>Click on any card in the <a href="#project">Projects</a> section for live demos and code links!`;
+            return `📂 <strong>Jaison's Key Featured Projects:</strong><br><br>1. 📄 <strong>AI Resume Analyzer & Optimizer</strong> (React + FastAPI + Gemini AI)<br>2. 🏢 <strong>Hostel Management System</strong> (Django + SQL)<br>3. 🔬 <strong>Breast Cancer ML Predictor</strong> (Gradient Boosting + Streamlit)<br>4. 💳 <strong>Loan Management System</strong> (Django + PostgreSQL)<br>5. 🎴 <strong>Smart FlashCards App</strong> (JS + LocalStorage)<br><br>Click on any card in the <a href="#project">Projects</a> section for live demos and code links!`;
         }
 
         // 13. Education & Qualifications
