@@ -1711,6 +1711,33 @@ span.multiple-text {
     color: #fff;
 }
 
+/* WhatsApp Quick Connect Styling */
+.btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: 1px solid #25D366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebd56;
+    border-color: #1ebd56;
+    color: #fff;
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.65);
+    transform: translateY(-3px) scale(1.03);
+}
+
+.social-media a.whatsapp-icon:hover {
+    background: #25D366;
+    color: #fff;
+    border-color: #25D366;
+    box-shadow: 0 0 15px #25D366;
+}
+
 /* Chat Messages */
 .chat-messages {
     flex: 1;
