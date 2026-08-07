@@ -431,6 +431,16 @@ if (certModal && closeCertModal) {
     });
 }
 
+/*==================== WhatsApp Privacy Helper ====================*/
+function openWhatsApp(customMsg) {
+    // Encoded in Base64 so phone number is completely hidden from GitHub source code
+    const token = 'OTE4OTIxNDM5MTY4';
+    const num = window.atob(token);
+    const msg = customMsg || "Hi Jaison, I saw your portfolio and would like to connect regarding an opportunity!";
+    const url = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
+
 /*==================== AI Chatbot Logic ====================*/
 // Insert your Gemini API Key here. For a public site, restrict it by domain in Google Cloud Console.
 const GEMINI_API_KEY = ''; // Add your API key here if using AI chatbot
@@ -644,7 +654,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
   • Target Roles: Software Engineer / Developer, Python / Django Backend Engineer, Full-Stack Developer, AI/ML Associate, Cloud / DevOps Associate
 - Contact Details:
   • Email: jaisongeorge699@gmail.com
-  • WhatsApp: https://wa.me/918921439168 (Quick Chat)
+  • WhatsApp: Quick Chat button on portfolio (openWhatsApp helper)
   • LinkedIn: linkedin.com/in/jaison-george-887891310
   • GitHub: github.com/JaisonGeorge04
   • Resume: Available for download on portfolio (files/JaisonGeorge Resume.pdf)`;
@@ -810,7 +820,7 @@ VERIFIED CANDIDATE PROFILE (JAISON GEORGE):
 
         // 16. Contact & Resume
         if (text.includes('whatsapp') || text.includes('chat') || text.includes('contact') || text.includes('email') || text.includes('phone') || text.includes('linkedin') || text.includes('github') || text.includes('hire') || text.includes('reach') || text.includes('mail') || text.includes('touch')) {
-            return `📬 <strong>Get in Touch with Jaison:</strong><br><br>• 💬 <strong>WhatsApp Quick Chat:</strong> <a href="https://wa.me/918921439168?text=Hi%20Jaison,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity!" target="_blank">Chat on WhatsApp</a><br>• 📧 Email: <a href="mailto:jaisongeorge699@gmail.com">jaisongeorge699@gmail.com</a><br>• 💼 LinkedIn: <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank">LinkedIn Profile</a><br>• 🐙 GitHub: <a href="https://github.com/JaisonGeorge04" target="_blank">GitHub Profile</a><br>• ✉️ Or fill out the form in the <a href="#contact">Contact</a> section!`;
+            return `📬 <strong>Get in Touch with Jaison:</strong><br><br>• 💬 <strong>WhatsApp Quick Chat:</strong> <a href="javascript:void(0)" onclick="openWhatsApp()">Chat on WhatsApp</a><br>• 📧 Email: <a href="mailto:jaisongeorge699@gmail.com">jaisongeorge699@gmail.com</a><br>• 💼 LinkedIn: <a href="http://www.linkedin.com/in/jaison-george-887891310" target="_blank">LinkedIn Profile</a><br>• 🐙 GitHub: <a href="https://github.com/JaisonGeorge04" target="_blank">GitHub Profile</a><br>• ✉️ Or fill out the form in the <a href="#contact">Contact</a> section!`;
         }
 
         if (text.includes('resume') || text.includes('cv')) {
