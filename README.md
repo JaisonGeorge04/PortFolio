@@ -9,7 +9,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
  
 ## ✨ Features
 
-- Fully responsive, single-page portfolio built with vanilla HTML, CSS, and JavaScript
+- Fully responsive, single-page portfolio built with vanilla HTML, CSS, and JavaScript 
 - Animated particle background and glassmorphism UI cards
 - Typing animation for role titles ([Typed.js](https://github.com/mattboldt/typed.js/))
 - Scroll-reveal animations ([ScrollReveal](https://scrollrevealjs.org/)) and 3D tilt effects ([Vanilla-Tilt.js](https://micku7zu.github.io/vanilla-tilt.js/))
