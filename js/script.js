@@ -4,7 +4,7 @@ let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+    navbar.classList.toggle('active'); 
 };
 
 /*==================== scroll sections active link & sticky header ====================*/
