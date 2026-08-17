@@ -67,7 +67,7 @@ This is a static site with no build step required.
 ## 🎓 Education
 
 - **Master of Computer Applications (MCA)** — LEAD College (Autonomous), Palakkad *(2025 – Present)*
-- **B.Sc. ** Computer Science** — St. Thomas College, Kozhencherry *(2022 – 2025)*
+- **B.Sc. ** ** Computer Science** — St. Thomas College, Kozhencherry *(2022 – 2025)*
 
 ## 📜 Certifications
 
