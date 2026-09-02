@@ -5,7 +5,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
 🔗 **Live Site:** ([url](https://jaisongeorge04.github.io/PortFolio/))
 📄 **Resume:** [`files/JaisonGeorge Resume.pdf`](files/JaisonGeorge%20Resume.pdf)
  
-------- 
+-------  
   
 ## ✨ Features
 
