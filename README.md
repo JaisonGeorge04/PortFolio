@@ -71,7 +71,7 @@ This is a static site with no build step required.
 
 ## 📜 Certifications
 
-- Digital Marketing
+- Digital Marketing 
 - Prompt Engineering 
 - TCS iON Industry Project — Securing a Smart Home Ecosystem (90 hours)
 - Cybersecurity
