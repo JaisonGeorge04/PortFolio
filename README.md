@@ -6,7 +6,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
 📄 **Resume:** [`files/JaisonGeorge Resume.pdf`](files/JaisonGeorge%20Resume.pdf)   
   
 -------    
-   
+    
 ## ✨ Features
 
 - Fully responsive, single-page portfolio built with vanilla HTML, CSS, and JavaScript 
