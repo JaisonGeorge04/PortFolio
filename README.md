@@ -82,6 +82,6 @@ This is a static site with no build step required.
 - **LinkedIn:** [jaison-george-887891310](http://www.linkedin.com/in/jaison-george-887891310)
 - **Email:** jaisongeorge699@gmail.com
 
----
+----
 
 <p align="center">© 2025 Jaison George — Designed for Excellence.</p>
