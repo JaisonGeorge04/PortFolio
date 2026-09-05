@@ -64,7 +64,7 @@ This is a static site with no build step required.
 | **Loan Management System** | Solution for managing and tracking loans with real-time updates and reporting. | [GitHub](https://github.com/JaisonGeorge04/Loan-Management-System) |
 | **Smart FlashCard Generator** | Interactive flashcard tool exploring dynamic JavaScript and modern CSS. | [GitHub](https://github.com/JaisonGeorge04/smart-flashcard-generator.git) |
 
-## 🎓 Education
+## 🎓 Education 
 
 - **Master of Computer Applications (MCA)** — LEAD College (Autonomous), Palakkad *(2025 – Present)*
 - **B.Sc. ** ** Computer Science** — St. Thomas College, Kozhencherry *(2022 – 2025)*
