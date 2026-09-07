@@ -62,7 +62,7 @@ This is a static site with no build step required.
 | **Hostel Management System** | Web-based application built with HTML, CSS, and Django to manage hostel operations. | [GitHub](https://github.com/JaisonGeorge04/Hostel-Management-System.git) |
 | **Breast Cancer Prediction System** | ML diagnostic tool using Gradient Boosting and Streamlit to classify breast tumors. | [GitHub](https://github.com/JaisonGeorge04/Breast-Cancer-Prediction-System) · [Live Demo](https://breastcancerpredictionsystem-7ao7uxnm8cwekhbzzk5vks.streamlit.app/) |
 | **Loan Management System** | Solution for managing and tracking loans with real-time updates and reporting. | [GitHub](https://github.com/JaisonGeorge04/Loan-Management-System) |
-| **Smart FlashCard Generator** | Interactive flashcard tool exploring dynamic JavaScript and modern CSS. | [GitHub](https://github.com/JaisonGeorge04/smart-flashcard-generator.git) |
+| **Smart Flashcard Generator** | Interactive flashcard tool exploring dynamic JavaScript and modern CSS. | [GitHub](https://github.com/JaisonGeorge04/smart-flashcard-generator.git) |
 
 ## 🎓 Education 
 
