@@ -7,7 +7,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
     
 -------        
            
-## ✨ Features  
+## ✨ Features   
  
 - Fully responsive, single-page portfolio built with vanilla HTML, CSS, and JavaScript  
 - Animated particle background and glassmorphism UI cards
