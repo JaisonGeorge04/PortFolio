@@ -19,7 +19,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
 - Working contact form powered by [FormSubmit](https://formsubmit.co/)
 
 ## 🛠️ Tech Stack
-
+ 
 | Category | Technologies |
 |---|---|
 | Languages | Python, JavaScript, SQL, Java, HTML5, CSS3 |
