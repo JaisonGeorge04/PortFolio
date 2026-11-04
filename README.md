@@ -20,7 +20,7 @@ A responsive, animated personal portfolio website showcasing my projects, skills
 
 ## 🛠️ Tech Stack
  
-| Category | Technologies |
+| Category | Technologies | 
 |---|---|
 | Languages | Python, JavaScript, SQL, Java, HTML5, CSS3 |
 | Frameworks & Dev | Django, React.js, Streamlit, REST APIs, Git |
