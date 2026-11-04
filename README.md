@@ -43,7 +43,7 @@ Portfolio Website/
 
 ## 🚀 Getting Started
 
-This is a static site with no build step required.
+This is a static site with no build step required. 
 
 1. Clone the repo
    ```bash
