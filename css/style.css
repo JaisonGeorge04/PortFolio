@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none; 
+    text-decoration: none;
     border: none;
     outline: none;
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
-} 
+}
 
 :root {
     --bg-color: #0b1120;
@@ -734,6 +734,79 @@ span.multiple-text {
     background: rgba(168, 85, 247, 0.25);
     border-color: var(--main-color);
     transform: translateY(-2px);
+}
+
+/* Internship Certificate Credential Banner */
+.exp-cert-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.2rem;
+    padding: 1.6rem 2.2rem;
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.exp-cert-banner:hover {
+    background: rgba(168, 85, 247, 0.14);
+    border-color: var(--main-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+}
+
+.exp-cert-banner .cert-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.exp-cert-banner .cert-icon {
+    font-size: 2.8rem;
+    color: var(--main-color);
+    padding: 0.9rem;
+    background: rgba(168, 85, 247, 0.15);
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exp-cert-banner .cert-info h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.3rem;
+}
+
+.exp-cert-banner .cert-info p {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+}
+
+.exp-cert-banner .view-cert-btn {
+    padding: 0.9rem 2.2rem;
+    font-size: 1.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    white-space: nowrap;
+    border-radius: 50rem;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .exp-cert-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .exp-cert-banner .view-cert-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .detail-info .status-pulse::after {

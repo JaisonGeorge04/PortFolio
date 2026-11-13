@@ -4,7 +4,7 @@ let navbar = document.querySelector('.navbar');
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');  
+    navbar.classList.toggle('active');
 };
 
 /*==================== scroll sections active link & sticky header ====================*/
@@ -373,9 +373,12 @@ if (certModal && closeCertModal) {
             const certPath = btn.getAttribute('href');
             if (!certPath) return;
 
-            // Get certificate title from sibling or closest box header
+            // Get certificate title from data-cert-title, sibling or closest card header
             const box = btn.closest('.services-box');
-            const title = box ? box.querySelector('h3').textContent : 'Certificate Preview';
+            const expCard = btn.closest('.experience-card');
+            const customTitle = btn.getAttribute('data-cert-title');
+            const rawTitle = customTitle || (box ? box.querySelector('h3')?.textContent : null) || (expCard ? expCard.querySelector('h3')?.textContent : null) || 'Certificate Preview';
+            const title = rawTitle.replace(/[\[\]]/g, '').trim();
             certTitle.textContent = title;
 
             // Prepare preview viewer content based on file type
