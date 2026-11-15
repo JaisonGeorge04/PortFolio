@@ -1,8 +1,8 @@
 # Jaison George | Professional Portfolio
 
-A responsive, animated personal portfolio website showcasing my projects, skills, certifications, and journey as a Software Developer with a focus on AI, Cloud, and DevOps technologies.
+A responsive, animated personal portfolio website showcasing my projects, skills, certifications, and journey as a software developer focused on AI, Cloud, and DevOps technologies.
 
-🔗 **Live Site:** ([url](https://jaisongeorge04.github.io/PortFolio/))
+🔗 **Live Site:** ([url](https://jaisongeorge04.github.io/PortFolio/)) 
 📄 **Resume:** [`files/JaisonGeorge Resume.pdf`](files/JaisonGeorge%20Resume.pdf)
 
 --------------------------
