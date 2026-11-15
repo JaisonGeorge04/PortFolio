@@ -653,6 +653,12 @@ span.multiple-text {
     color: #4ade80;
 }
 
+.exp-role-badge.completed {
+    background: rgba(168, 85, 247, 0.12);
+    border-color: rgba(168, 85, 247, 0.3);
+    color: var(--main-color);
+}
+
 .exp-duration {
     font-size: 1.4rem;
     color: var(--text-muted);
