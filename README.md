@@ -52,7 +52,7 @@ This is a static site with no build step required.
    ```
 2. Open `index.html` directly in your browser, or serve it locally:
    ```bash
-   npx serve .
+   npx serve.
    ```
 
 ## 📌 Featured Projects
