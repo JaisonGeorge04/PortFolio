@@ -697,6 +697,13 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
+    <!-- Use the deployed API on GitHub Pages; js/script.js keeps the localhost default locally. -->
+    <script>
+        if (window.location.hostname === 'jaisongeorge04.github.io') {
+            window.PORTFOLIO_CHAT_API_URL = 'https://portfolio-ai-chatbot-jrhe.onrender.com';
+        }
+    </script>
+
     <!-- custom js -->
     <script src="js/script.js?v=1.6.1"></script>
 </body>

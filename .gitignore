@@ -1,0 +1,24 @@
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.p12
+*.pfx
+*.key
+.aws/
+.ssh/
+
+# Python environments, bytecode, and test/tool caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Local JavaScript dependencies
+node_modules/
